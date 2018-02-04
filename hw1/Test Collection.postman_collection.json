@@ -1,0 +1,106 @@
+{
+	"id": "829d21e0-3548-4722-77a2-eb7bfbef59d3",
+	"name": "Test Collection",
+	"description": "",
+	"order": [
+		"2951e873-11e9-7c77-f69d-69276ecd6beb",
+		"b689e7e6-0ec8-1a8f-7fa2-5f231eeb91d7"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1517273114314,
+	"owner": "3627804",
+	"public": false,
+	"events": [],
+	"variables": [],
+	"auth": null,
+	"requests": [
+		{
+			"id": "2951e873-11e9-7c77-f69d-69276ecd6beb",
+			"headers": "",
+			"headerData": [],
+			"url": "https://www.googleapis.com/books/v1/volumes?q={{book_title}}",
+			"queryParams": [
+				{
+					"key": "q",
+					"value": "{{book_title}}",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "df34c1b7-dee9-455f-bdd2-61b3f4b7fccd",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.set(\"book_title\", \"Turing\");"
+						]
+					}
+				}
+			],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "829d21e0-3548-4722-77a2-eb7bfbef59d3",
+			"data": null,
+			"dataMode": "params",
+			"name": "Test Request",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1517274229787,
+			"version": 2,
+			"responses": [],
+			"preRequestScript": "pm.environment.set(\"book_title\", \"Turing\");",
+			"tests": null,
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "b689e7e6-0ec8-1a8f-7fa2-5f231eeb91d7",
+			"headers": "",
+			"headerData": [],
+			"url": "https://www.googleapis.com/books/v1/volumes/{{id}}",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6852c638-fec3-40da-a68f-ff17e0a87add",
+						"type": "text/javascript",
+						"exec": [
+							"// var jsonData = JSON.parse(responseBody);",
+							"// var id = jsonData.items[0].id;",
+							"// postman.setEnvironmentVariable(\"id\", id);",
+							"",
+							"// var patt = /id/i;",
+							"// var res = patt.test(id);",
+							"",
+							"// tests[\"id\"] = (res === true)"
+						]
+					}
+				}
+			],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "829d21e0-3548-4722-77a2-eb7bfbef59d3",
+			"data": null,
+			"dataMode": "params",
+			"name": "https://www.googleapis.com/books/v1/volumes/{{id}}",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1517522811458,
+			"version": 2,
+			"responses": [],
+			"preRequestScript": null,
+			"tests": "// var jsonData = JSON.parse(responseBody);\n// var id = jsonData.items[0].id;\n// postman.setEnvironmentVariable(\"id\", id);\n\n// var patt = /id/i;\n// var res = patt.test(id);\n\n// tests[\"id\"] = (res === true)",
+			"currentHelper": null,
+			"helperAttributes": null
+		}
+	]
+}

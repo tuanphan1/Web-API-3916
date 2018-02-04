@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<movies movieid="666666"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="movies.xsd">
+    <movie>
+        <title>Finding Nemo</title>
+        <year>2004</year>
+        <genre>Adventure</genre>
+    </movie>
+    <actors>
+        <name>Ellen DeGeneres</name>
+        <dob>1958-01-26</dob>
+    </actors>
+</movies>

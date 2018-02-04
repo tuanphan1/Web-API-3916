@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="movies" type="moviesType"/>
+  <xs:complexType name="movieType">
+    <xs:sequence>
+      <xs:element name="title">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+      </xs:element>
+      <xs:element name="year">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:pattern value="[0-9][0-9][0-9][0-9]"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="genre">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Action" />
+            <xs:enumeration value="Adventure" />
+            <xs:enumeration value="Comedy" />
+            <xs:enumeration value="Drama" />
+            <xs:enumeration value="Fantasy" />
+            <xs:enumeration value="Horror" />
+            <xs:enumeration value="Mystery" />
+            <xs:enumeration value="Thriller" />
+            <xs:enumeration value="Western" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actorsType">
+    <xs:sequence>
+      <xs:element name="name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="dob">
+        <xs:simpleType>
+          <xs:restriction base="xs:date">
+
+            <!--<xs:pattern value="\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])"/>-->
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="moviesType">
+    <xs:sequence>
+      <xs:element type="movieType" name="movie"/>
+      <xs:element type="actorsType" name="actors" minOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="movieid"/>
+  </xs:complexType>
+</xs:schema>

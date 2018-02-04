@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<person snn="123-00-1234"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://sample"
+        xsi:schemaLocation="http://sample person.xsd">
+    <gender>female</gender>
+    <firstname>Anna</firstname>
+    <lastname>Smith</lastname>
+    <phone>800-555-5555</phone>
+    <email>test@test.com</email>
+</person>

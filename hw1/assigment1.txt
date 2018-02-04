@@ -1,0 +1,53 @@
+Assignment 1
+
+Review the HTTP Headers in the Request and Response –create text file and
+describe each key value pair in the HTTP header in both request and response
+and check it in with the project to GitHub (e.g. what is the content-type and what does it mean)
+
+Headers
+
+Alt-Svc →hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337; quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+alternative service, other places the request can be found
+
+Cache-Control →private, max-age=0, must-revalidate, no-transform
+Cache-control specify directives for caching mechanisms in both, requests and responses
+private: private connection
+max-age: max time fetched response is allowed to be reused from time of request
+must-revalidate: cache must revalidate if response is stale
+no-transform: cache can't change
+
+Content-Encoding →gzip
+The http can be gzip format
+
+Content-Type →application/json; charset=UTF-8
+content is JSON format, encoded in UTF-8 character encoding
+
+Date →Sun, 04 Feb 2018 01:16:08 GMT
+date and time message was sent
+
+ETag →"f6QLsd8inUgRKJVNBqJ8xHnPb0w/4Y3QGt96qdbRG-eisfCf6ieAF0M"
+identifier for the specific version of the resource
+
+Expires →Sun, 04 Feb 2018 01:16:08 GMT
+date and time message is stale
+
+Server →GSE
+the server that is used to handle the request
+
+Transfer-Encoding →chunked
+the form of encoding used to transfer the request/response
+
+Vary →Origin
+Determines how to match future request headers to decide whether a cached response can be used rather than requesting a fresh one from the origin server.
+
+Vary →X-Origin
+Determines how to match future request headers to decide whether a cached response can be used rather than requesting a fresh one from the origin server
+
+X-Content-Type-Options →nosniff
+X-Content-Type-Options is marker to indicate the MIME types in the Content-Type headers should not be changed. The value nosniff will prevent Internet Explorer from MIME-sniffing a response away from the declared content-type.
+
+X-Frame-Options →SAMEORIGIN
+Instructs the browser to prevent any site with SAMEORIGIN in the response from being rendered within a frame.
+
+X-XSS-Protection →1; mode=block
+This lets domains toggle on and off the "XSS Filter" of IE8, which prevents some categories of XSS attacks.

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           targetNamespace="http://sample"
+           xmlns="http://sample"
+           elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="person" type="personType"/>
+  <xs:complexType name="personType">
+    <xs:sequence>
+      <xs:element name="gender">
+          <xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:enumeration value="female" />
+                  <xs:enumeration value="male" />
+                  <xs:enumeration value="transgender" />
+                  <xs:enumeration value="nonbinary" />
+                  <xs:enumeration value="agender" />
+                  <xs:enumeration value="androgynous" />
+                  <xs:enumeration value="binary" />
+                  <xs:enumeration value="cisgender" />
+                  <xs:enumeration value="agender" />
+              </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="firstname"/>
+      <xs:element type="xs:string" name="lastname"/>
+      <xs:element type="phone" name="phone" />
+      <xs:element type="email" name="email" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute type="ssn" name="snn"/>
+  </xs:complexType>
+  <xs:simpleType name="ssn">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{3}-\d\d-\d\d\d\d"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="phone">
+      <xs:restriction base="xs:string">
+          <xs:pattern value="[2-9]\d{2}-\d{3}-\d{4}"/>
+      </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="email">
+      <xs:restriction base="xs:string">
+          <xs:pattern value="[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}"/>
+      </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
