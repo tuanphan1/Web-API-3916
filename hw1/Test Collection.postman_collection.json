@@ -1,10 +1,10 @@
 {
-	"id": "829d21e0-3548-4722-77a2-eb7bfbef59d3",
+	"id": "9f5a57c9-fbb7-048b-46a7-13373cde215d",
 	"name": "Test Collection",
 	"description": "",
 	"order": [
-		"2951e873-11e9-7c77-f69d-69276ecd6beb",
-		"b689e7e6-0ec8-1a8f-7fa2-5f231eeb91d7"
+		"43a80bab-92cf-f6b3-3eed-67c8690bae7e",
+		"2788ab5e-f53a-c9a0-40ae-fd4db89e55ff"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -14,9 +14,50 @@
 	"events": [],
 	"variables": [],
 	"auth": null,
+	"hasRequests": true,
 	"requests": [
 		{
-			"id": "2951e873-11e9-7c77-f69d-69276ecd6beb",
+			"id": "2788ab5e-f53a-c9a0-40ae-fd4db89e55ff",
+			"headers": "",
+			"headerData": [],
+			"url": "https://www.googleapis.com/books/v1/volumes/{{id}}",
+			"queryParams": [],
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c96387e-0ab1-4e7b-8cb0-6b6780e1d158",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"id test OK\"] = responseBody.has(\"id\");",
+							"tests[\"status code is 200\"] = responseCode.code === 200;",
+							""
+						]
+					}
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"auth": null,
+			"time": 1517861560623,
+			"name": "https://www.googleapis.com/books/v1/volumes/{{id}}",
+			"description": "",
+			"collectionId": "9f5a57c9-fbb7-048b-46a7-13373cde215d",
+			"responses": [],
+			"collection_id": "9f5a57c9-fbb7-048b-46a7-13373cde215d",
+			"preRequestScript": null,
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"id test OK\"] = responseBody.has(\"id\");\ntests[\"status code is 200\"] = responseCode.code === 200;\n",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "43a80bab-92cf-f6b3-3eed-67c8690bae7e",
 			"headers": "",
 			"headerData": [],
 			"url": "https://www.googleapis.com/books/v1/volumes?q={{book_title}}",
@@ -76,49 +117,11 @@
 			"time": 1517861563883,
 			"name": "Test Request",
 			"description": "",
-			"collectionId": "829d21e0-3548-4722-77a2-eb7bfbef59d3",
+			"collectionId": "9f5a57c9-fbb7-048b-46a7-13373cde215d",
 			"responses": [],
+			"collection_id": "9f5a57c9-fbb7-048b-46a7-13373cde215d",
 			"preRequestScript": "pm.environment.set(\"book_title\", \"Turing\");",
 			"tests": "var jsonData = JSON.parse(responseBody);\nvar i = 0;\n\nwhile(i < jsonData.items.length){\n    var title = jsonData.items[i].volumeInfo.title;\n    var id = jsonData.items[i].id;\n    postman.setEnvironmentVariable(\"id\", id);\n    console.log(\"title \" + title);\n    var patt = /turing/i;\n    var res = patt.test(title);\n    console.log(res);\n    tests[\"book title\"] = (res === true);\n    i++;\n}\n tests[\"status code is 200\"] = responseCode.code === 200;\n",
-			"currentHelper": null,
-			"helperAttributes": null
-		},
-		{
-			"id": "b689e7e6-0ec8-1a8f-7fa2-5f231eeb91d7",
-			"headers": "",
-			"headerData": [],
-			"url": "https://www.googleapis.com/books/v1/volumes/{{id}}",
-			"queryParams": [],
-			"events": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "1c96387e-0ab1-4e7b-8cb0-6b6780e1d158",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"",
-							"tests[\"id test OK\"] = responseBody.has(\"id\");",
-							"tests[\"status code is 200\"] = responseCode.code === 200;",
-							""
-						]
-					}
-				}
-			],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"auth": null,
-			"time": 1517861560623,
-			"name": "https://www.googleapis.com/books/v1/volumes/{{id}}",
-			"description": "",
-			"collectionId": "829d21e0-3548-4722-77a2-eb7bfbef59d3",
-			"responses": [],
-			"preRequestScript": null,
-			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"id test OK\"] = responseBody.has(\"id\");\ntests[\"status code is 200\"] = responseCode.code === 200;\n",
 			"currentHelper": null,
 			"helperAttributes": null
 		}
