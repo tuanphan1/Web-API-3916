@@ -5,11 +5,24 @@
        xsi:noNamespaceSchemaLocation="movies.xsd">
     <movie>
         <title>Finding Nemo</title>
+        <year>2018</year>
+        <genre>Adventure</genre>
+        <actors>
+            <actor>
+                <name>Ellen DeGeneres</name>
+                <dob>1958-01-26</dob>
+            </actor>
+        </actors>
+    </movie>
+    <movie>
+        <title>Cars</title>
         <year>2004</year>
         <genre>Adventure</genre>
+        <actors>
+            <actor>
+                <name>Owen Wilson</name>
+                <dob>1973-11-26</dob>
+            </actor>
+        </actors>
     </movie>
-    <actors>
-        <name>Ellen DeGeneres</name>
-        <dob>1958-01-26</dob>
-    </actors>
 </movies>
